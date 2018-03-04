@@ -15,20 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework import routers
-
-from applications.matches import views as matches_views
-from applications.players import views as players_views
-from applications.communities import views as communities_views
-
-router = routers.DefaultRouter()
-router.register(r'players', players_views.PlayerViewSet)
-router.register(r'communities', communities_views.CommunityViewSet)
-router.register(r'communities/(?P<community_id>[0-9]+)/teams', players_views.TeamViewSet)
-router.register(r'communities/(?P<community_id>[0-9]+)/matches', matches_views.MatchViewSet)
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
+    url(r'^', include('applications.communities.urls')),
+    url(r'^', include('applications.players.urls')),
+    url(r'^', include('applications.matches.urls')),
 ]
