@@ -21,7 +21,6 @@ class TeamViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def perform_create(self, serializer):
-        # Validar que los players del team esten en la comunidad
         community_id = self.request.parser_context['kwargs'].get(
             'community_id')
 
