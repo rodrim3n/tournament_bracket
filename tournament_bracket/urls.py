@@ -18,6 +18,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +27,6 @@ urlpatterns = [
     url(r'^', include('applications.communities.urls')),
     url(r'^', include('applications.players.urls')),
     url(r'^', include('applications.matches.urls')),
+    url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^api-token-refresh/', refresh_jwt_token),
 ]
