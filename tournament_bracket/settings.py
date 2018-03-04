@@ -63,7 +63,7 @@ ROOT_URLCONF = 'tournament_bracket.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'tournament_bracket/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
