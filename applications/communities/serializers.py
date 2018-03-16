@@ -3,8 +3,8 @@ from rest_framework import serializers
 
 
 class CommunitySerializer(serializers.HyperlinkedModelSerializer):
-    players = serializers.StringRelatedField(many=True)
-    teams = serializers.StringRelatedField(many=True)
+    players = serializers.StringRelatedField(many=True, read_only=True)
+    teams = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Community
@@ -13,4 +13,3 @@ class CommunitySerializer(serializers.HyperlinkedModelSerializer):
             'players',
             'teams',
         )
-

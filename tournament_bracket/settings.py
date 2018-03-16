@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # extensions
     'django_extensions',
     'rest_framework',
+    'rest_framework_swagger',
     # base apps
     'django.contrib.admin',
     'django.contrib.auth',
